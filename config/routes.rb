@@ -1,9 +1,10 @@
 Onemonthrails::Application.routes.draw do
-  get "pages/contact"
-  get "pages/about"
+ 
   root "pages#home"
-  get "about" => "pages#about"
-  get "contact" => "pages#contact"
+  get "about" => "pages#about" #creates login page
+  get "contact" => "pages#contact" #creates login page
+  get "login" => "pages#login" #creates login page
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
