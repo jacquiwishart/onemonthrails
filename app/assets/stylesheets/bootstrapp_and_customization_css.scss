@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Quicksand:400,700);
+
+$font-family-sans-serif: 'Quicksand', helvetica;
+$body-bg: #ecf0f1;
+$navbar-default-bg:  #36454F;
+$navbar-height: 85px;
+$navbar-default-link-color: white;
+$jumbotron-bg: 	 #96DED1;
+$btn-primary-bg: #36454F;
+
+
+
+@import 'bootstrap';
+
+.center {
+	text-align:center;
+}
+
+.navbar-brand {
+	font-weight:bold;
+	font-size: x-large;
+}
