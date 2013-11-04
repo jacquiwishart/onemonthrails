@@ -1,5 +1,6 @@
 Onemonthrails::Application.routes.draw do
  
+  devise_for :users
   root "pages#home"
   get "about" => "pages#about" #creates login page
   get "contact" => "pages#contact" #creates login page

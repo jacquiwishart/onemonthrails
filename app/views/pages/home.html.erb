@@ -1,11 +1,18 @@
 <div class="jumbotron center">
   <h1>Hello, job seeker</h1>
+ 
+<% if user_signed_in? %>
+# do something
+<% else %>
+
   <p>esumeray is an app designed to help you organize your skills and make a kickass resume.</p>
+
   <p>
     <a class="btn btn-primary" <%= link_to "Learn More", about_path %>
     </a>
 
-     <a class="btn btn-primary" <%= link_to "Sign Up", login_path %>
+     <a class="btn btn-primary" <%= link_to "Get Started", new_user_registration_path %>
     </a>
   </p>
+  <% end %>
 </div>
