@@ -1,18 +1,37 @@
-<h2>Sign up</h2>
-
+<h1>Get started!</h1>
+<p> Are you ready to start tailoring your resume for each job to which you apply and land the career of your dreams?
+</p>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
+  <div class="container">
+  <div class="row">
+<div class="form-group input-lg col-xs-7 placeholder="email"">
+  <div><%= f.label :email %> 
+  <%= f.email_field :email, autofocus: true, class: "form-control"%></div>
+  </div>
+</div>
+<br	/>
+<div class="row">
+<div class="form-group input-lg col-xs-7">
+  <div><%= f.label :password %> (8 charachter minimum) <br />
+  <%= f.password_field :password, class: "form-control"%></div>
+</div>
+</div>
+<br	/>
+<div class="row">
+<div class="form-group input-lg col-xs-7">
   <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.password_field :password_confirmation, class: "form-control"  %> </div>
+  </div>
+</div>
+<br />
+<br />
 
-  <div><%= f.submit "Sign up" %></div>
+<div class="form-group">
+  <%= f.submit "Sign up", class: "btn btn-primary" %>
+  </div>
+
+ 
 <% end %>
 
 <%= render "devise/shared/links" %>
