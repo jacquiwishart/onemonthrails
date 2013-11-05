@@ -1,29 +1,66 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= resource_name.to_s.humanize %> Account</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
+<div class="row">
+<div class="form-group input-lg col-xs-7">
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= f.email_field :email, :autofocus => true, class: "form-control"%></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+</div>
+</div>
+<br/>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+<div class="row">
+<div class="form-group input-lg col-xs-7">
+  <div> <%= f.label :password %> <i>(leave blank to remain unchanged)</i><br />
+  <%= f.password_field :password, :autocomplete => "off", class: "form-control"%>
+  </div>
+</div>
+</div>
+<br />
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+<div class="row">
+<div class="form-group input-lg col-xs-7">
+  <div> <%= f.label :password_confirmation %> <br />
+  <%= f.password_field :password_confirmation , class: "form-control"%>
+  </div>
+</div>
+</div>
+<br />
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+<div class="row">
+<div class="form-group input-lg col-xs-7">
+  <div><%= f.label :current_password %> <i>(required to confirm changes)</i><br />
+  <%= f.password_field :current_password , class: "form-control"%>
+  </div>
+</div>
+</div>
 
-  <div><%= f.submit "Update" %></div>
+  <br/>
+  <br/> <br/>
+
+<div class="form-group">
+  <%= f.submit "Update", class: "btn btn-primary"%>
+</div>
+
 <% end %>
 
-<h3>Cancel my account</h3>
+<br />
+<br />
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<h2>Cancel Account</h2>
+
+<p>We're sorry to see you go! </p>
+<p> Please note if you delete your account this action cannot be undone. </p>
+
+<div class="form-group">
+<p>
+<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-primary" %></p>
+</div>
 
 <%= link_to "Back", :back %>
