@@ -1,5 +1,7 @@
 Onemonthrails::Application.routes.draw do
  
+  resources :skills
+
   devise_for :users
   root "pages#home"
   get "about" => "pages#about" #creates login page
