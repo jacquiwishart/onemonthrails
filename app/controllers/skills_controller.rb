@@ -1,22 +1,23 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
-
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   def index
-    @allskills = Skill.all
+    @skills = Skill.all
   end
 
   def show
   end
 
   def new
-    @skill = Skill.new
+    @skill = current_user.skills.build
   end
 
   def edit
   end
 
   def create
-    @skill = Skill.new(skill_params)
+    @skill = current_user.skills.build(skill_params)
       if @skill.save
         redirect_to skills_url, notice: 'Skill added successfully.'
       else
@@ -41,6 +42,11 @@ class SkillsController < ApplicationController
   private
     def set_skill
       @skill = Skill.find(params[:id])
+    end
+
+     def correct_user
+      @skill = current_user.skills.find_by(id: params[:id])
+      redirect_to skills_path, notice: "Not authorized to edit this skill" if @pin.nil?
     end
 
     def skill_params

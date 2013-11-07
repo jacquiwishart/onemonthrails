@@ -7,26 +7,30 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @allskills.each do |skill| %>
+    <% @skills.each do |skill| %>
       <tr>
       
         <td><%= skill.description %></td>
+        <!--pulls in user email if populated-->
+         <td> <%= skill.user.email if skill.user %></td>
         <td><%= link_to 'Show', skill %></td>
         <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
         <td><%= link_to 'X', skill, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' } %></td>
       </tr>
-
-    <% end %>
+<% end %>
   </tbody>
 </table>
       </div>
 
 <br>
+<% if user_signed_in? %>
 <div class="form-group">
 <%= link_to 'New Skill', new_skill_path, class: "btn btn-primary" %>
   </div>
+  <% end %>
   </div>
