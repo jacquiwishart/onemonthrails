@@ -18,7 +18,7 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new(skill_params)
       if @skill.save
-        redirect_to @skill, notice: 'Skill was successfully created.'
+        redirect_to skills_url, notice: 'Skill added successfully.'
       else
         render action: 'new' 
       end
