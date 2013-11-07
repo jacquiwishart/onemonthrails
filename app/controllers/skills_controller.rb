@@ -2,7 +2,7 @@ class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   def index
-    @skills = Skill.all
+    @allskills = Skill.all
   end
 
   def show

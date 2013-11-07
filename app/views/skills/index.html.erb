@@ -1,6 +1,6 @@
-<h1>Listing skills</h1>
-
-<table>
+<h1>Your skills</h1>
+<div container> 
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Description</th>
@@ -11,17 +11,22 @@
   </thead>
 
   <tbody>
-    <% @skills.each do |skill| %>
+    <% @allskills.each do |skill| %>
       <tr>
+      
         <td><%= skill.description %></td>
         <td><%= link_to 'Show', skill %></td>
         <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'X', skill, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' } %></td>
       </tr>
+
     <% end %>
   </tbody>
 </table>
+      </div>
 
 <br>
-
-<%= link_to 'New Skill', new_skill_path %>
+<div class="form-group">
+<%= link_to 'New Skill', new_skill_path, class: "btn btn-primary" %>
+  </div>
+  </div>
