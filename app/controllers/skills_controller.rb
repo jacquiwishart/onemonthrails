@@ -1,6 +1,5 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @skills = Skill.all
@@ -44,10 +43,7 @@ class SkillsController < ApplicationController
       @skill = Skill.find(params[:id])
     end
 
-     def correct_user
-      @skill = current_user.skills.find_by(id: params[:id])
-      redirect_to skills_path, notice: "Not authorized to edit this skill" if @pin.nil?
-    end
+ 
 
     def skill_params
       params.require(:skill).permit(:description)
